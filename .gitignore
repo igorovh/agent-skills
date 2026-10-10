@@ -1,0 +1,10 @@
+node_modules/
+
+# Agent directories created by accidentally running `npx skills add .` inside this repo.
+# They would also be picked up by skill discovery and shadow skills/.
+.agents/
+.claude/
+.opencode/
+skills-lock.json
+
+.DS_Store
