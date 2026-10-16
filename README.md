@@ -13,6 +13,7 @@ Works with OpenAI Codex CLI, Claude Code, OpenCode, and [every other agent the S
 | Skill | What it does |
 | - | - |
 | [`meaningful-testing`](skills/meaningful-testing/SKILL.md) | Makes the agent write tests that catch real bugs instead of inflating coverage: a mandatory decision process before each test, rules for mocking, determinism, and assertions, and an explicit "no new tests needed" verdict when that is the right call. On request, audits a whole test suite and fixes weak, duplicate, and flaky tests. |
+| [`plain-language`](skills/plain-language/SKILL.md) | Makes the agent write to people in plain, simple language, in the language the user writes in. Polish and English have dedicated guides; other languages use the core rules. Keeps code and technical terms as they are, and keeps every fact, number, and hedge. Ask for a simpler explanation and it switches to a level that explains every term. |
 
 ## Discover
 
@@ -69,6 +70,20 @@ For example, to run the test-suite audit in `meaningful-testing`:
 ```
 
 or just ask in plain words: "review all tests and fix the weak ones".
+
+### Always-on plain language
+
+Agents load a skill only when a task matches its description, so `plain-language` will not shape every reply on its own. To apply it to every reply, add this to your `AGENTS.md` (Codex, OpenCode) or `CLAUDE.md` (Claude Code):
+
+```markdown
+# Plain language
+
+- Reply in the language of my latest message. Do not translate unless I ask.
+- Write in plain language: short sentences, one idea each, common words, active voice. Put the main point first.
+- Keep code, commands, paths, identifiers, and the technical terms I use exactly as they are.
+- Keep every fact, number, condition, and hedge. Never turn "may" into "will".
+- Follow the `plain-language` skill for the full rules and the guide for my language.
+```
 
 ## Update
 
